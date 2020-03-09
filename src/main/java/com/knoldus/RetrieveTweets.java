@@ -2,7 +2,6 @@ package com.knoldus;
 
 import twitter4j.TwitterException;
 
-import java.io.IOException;
 import java.util.List;
 
 /**
@@ -17,6 +16,6 @@ public interface RetrieveTweets {
      * @return List of CustomTweet is returned.
      * @throws TwitterException Handles an exception if occurred.
      */
-    List<CustomTweet> retrieveTweets(String hashtag) throws TwitterException, IOException;
+    List<CustomTweet> retrieveTweets(String hashtag) throws TwitterException;
 
 }

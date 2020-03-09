@@ -2,7 +2,6 @@ package com.knoldus;
 
 import twitter4j.TwitterException;
 
-import java.io.IOException;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
@@ -19,7 +18,7 @@ public class FilterTweetsImpl implements FilterTweets {
     }
 
     @Override
-    public List<CustomTweet> getLatestTweets(String hashtag, long limit) throws TwitterException, IOException {
+    public List<CustomTweet> getLatestTweets(String hashtag, long limit) throws TwitterException {
         return retrieveTweets.retrieveTweets(hashtag)
                 .stream()
                 .limit(limit)
@@ -28,7 +27,7 @@ public class FilterTweetsImpl implements FilterTweets {
 
     @Override
     public List<CustomTweet> getOldestTweets(String hashtag, long limit, long offset)
-            throws TwitterException, IOException {
+            throws TwitterException {
         return retrieveTweets.retrieveTweets(hashtag)
                 .stream()
                 .sorted(Comparator.comparing(tweet -> tweet.createdAt))
@@ -38,7 +37,7 @@ public class FilterTweetsImpl implements FilterTweets {
     }
 
     @Override
-    public List<CustomTweet> getTweetsWithHigherToLowerRetweets(String hashtag) throws TwitterException, IOException {
+    public List<CustomTweet> getTweetsWithHigherToLowerRetweets(String hashtag) throws TwitterException {
         List<CustomTweet> getTweetsWithHigherToLowerRetweets =
                 retrieveTweets.retrieveTweets(hashtag)
                 .stream()
@@ -49,7 +48,7 @@ public class FilterTweetsImpl implements FilterTweets {
     }
 
     @Override
-    public List<CustomTweet> getTweetsWithHigherToLowerLikes(String hashtag) throws TwitterException, IOException {
+    public List<CustomTweet> getTweetsWithHigherToLowerLikes(String hashtag) throws TwitterException {
         List<CustomTweet> getTweetsWithHigherToLowerLikes =
                 retrieveTweets.retrieveTweets(hashtag)
                 .stream()
@@ -60,7 +59,7 @@ public class FilterTweetsImpl implements FilterTweets {
     }
 
     @Override
-    public List<CustomTweet> getTweetsOnGivenDate(String hashtag, LocalDate date) throws TwitterException, IOException {
+    public List<CustomTweet> getTweetsOnGivenDate(String hashtag, LocalDate date) throws TwitterException {
         return retrieveTweets.retrieveTweets(hashtag)
                 .stream()
                 .filter(tweet -> tweet.createdAt
@@ -73,7 +72,7 @@ public class FilterTweetsImpl implements FilterTweets {
 
     @Override
     public List<CustomTweet> getLikesOnTweetsInGivenTimeInterval(String hashtag, long minutes)
-            throws TwitterException, IOException {
+            throws TwitterException {
         LocalDateTime endTime = LocalDateTime.now();
         LocalDateTime startTime = endTime.minusMinutes(minutes);
         return retrieveTweets.retrieveTweets(hashtag)

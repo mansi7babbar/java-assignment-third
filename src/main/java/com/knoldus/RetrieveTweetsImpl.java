@@ -4,7 +4,6 @@ import twitter4j.Query;
 import twitter4j.Status;
 import twitter4j.TwitterException;
 
-import java.io.IOException;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -16,7 +15,7 @@ public class RetrieveTweetsImpl implements RetrieveTweets {
     }
 
     @Override
-    public List<CustomTweet> retrieveTweets(String hashtag) throws TwitterException, IOException {
+    public List<CustomTweet> retrieveTweets(String hashtag) throws TwitterException {
         Query hashtagQuery = new Query(hashtag);
         List<Status> tweets = twitterSetup.getTwitterInstance().search(hashtagQuery).getTweets();
         return tweets.stream().map(tweet ->

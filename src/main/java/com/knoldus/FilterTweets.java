@@ -19,7 +19,7 @@ public interface FilterTweets {
      * @return List of CustomTweet is returned.
      * @throws TwitterException Handles an exception if occurred.
      */
-    List<CustomTweet> getLatestTweets(String hashtag, long limit) throws TwitterException, IOException;
+    List<CustomTweet> getLatestTweets(String hashtag, long limit) throws TwitterException;
 
     /**
      * Provides oldest tweets upto a certain limit.
@@ -28,7 +28,7 @@ public interface FilterTweets {
      * @return List of CustomTweet is returned.
      * @throws TwitterException Handles an exception if occurred.
      */
-    List<CustomTweet> getOldestTweets(String hashtag, long limit, long offset) throws TwitterException, IOException;
+    List<CustomTweet> getOldestTweets(String hashtag, long limit, long offset) throws TwitterException;
 
     /**
      * Provides higher to lower number of retweets for all tweets containing given hashtag.
@@ -36,7 +36,7 @@ public interface FilterTweets {
      * @return Number of tweets required.
      * @throws TwitterException Handles an exception if occurred.
      */
-    List<CustomTweet> getTweetsWithHigherToLowerRetweets(String hashtag) throws TwitterException, IOException;
+    List<CustomTweet> getTweetsWithHigherToLowerRetweets(String hashtag) throws TwitterException;
 
     /**
      * Provides higher to lower number of likes for all tweets containing given hashtag.
@@ -44,7 +44,7 @@ public interface FilterTweets {
      * @return Number of tweets required.
      * @throws TwitterException Handles an exception if occurred.
      */
-    List<CustomTweet> getTweetsWithHigherToLowerLikes(String hashtag) throws TwitterException, IOException;
+    List<CustomTweet> getTweetsWithHigherToLowerLikes(String hashtag) throws TwitterException;
 
     /**
      * Provides tweets posted on a given date.
@@ -53,7 +53,7 @@ public interface FilterTweets {
      * @return Number of tweets required.
      * @throws TwitterException Handles an exception if occurred.
      */
-    List<CustomTweet> getTweetsOnGivenDate(String hashtag, LocalDate date) throws TwitterException, IOException;
+    List<CustomTweet> getTweetsOnGivenDate(String hashtag, LocalDate date) throws TwitterException;
 
     /**
      * Provide number of likes on tweets posted within a given time interval.
