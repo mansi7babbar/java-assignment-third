@@ -2,10 +2,11 @@ package com.knoldus;
 
 import twitter4j.TwitterException;
 
+import java.io.IOException;
 import java.util.List;
 
 public class AppDriver {
-    public static void main(String[] args) throws TwitterException {
+    public static void main(String[] args) throws TwitterException, IOException {
         FilterTweetsImpl filterTweets = new FilterTweetsImpl(new RetrieveTweetsImpl(new TwitterSetup()));
 
         List<CustomTweet> getLatestTweets = filterTweets
@@ -13,7 +14,7 @@ public class AppDriver {
         System.out.println(getLatestTweets);
 
         List<CustomTweet> getOldestTweets = filterTweets
-                .getOldestTweets(Constants.hashtag, Constants.limit);
+                .getOldestTweets(Constants.hashtag, Constants.limit, Constants.offset);
         System.out.println(getOldestTweets);
 
         List<CustomTweet> getTweetsWithHigherToLowerRetweets = filterTweets
