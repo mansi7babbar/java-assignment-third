@@ -30,6 +30,3 @@ project/plugins/project/
 # maven
 log/
 target/
-
-#config
-application.conf
